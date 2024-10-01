@@ -1,0 +1,14 @@
+C:\Users\sambe\Downloads\Aftekenopdrachten2_wagons\BAI2\bin\Debug\net8.0\BAI2.exe
+C:\Users\sambe\Downloads\Aftekenopdrachten2_wagons\BAI2\bin\Debug\net8.0\BAI2.deps.json
+C:\Users\sambe\Downloads\Aftekenopdrachten2_wagons\BAI2\bin\Debug\net8.0\BAI2.runtimeconfig.json
+C:\Users\sambe\Downloads\Aftekenopdrachten2_wagons\BAI2\bin\Debug\net8.0\BAI2.dll
+C:\Users\sambe\Downloads\Aftekenopdrachten2_wagons\BAI2\bin\Debug\net8.0\BAI2.pdb
+C:\Users\sambe\Downloads\Aftekenopdrachten2_wagons\BAI2\obj\Debug\net8.0\BAI2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sambe\Downloads\Aftekenopdrachten2_wagons\BAI2\obj\Debug\net8.0\BAI2.AssemblyInfoInputs.cache
+C:\Users\sambe\Downloads\Aftekenopdrachten2_wagons\BAI2\obj\Debug\net8.0\BAI2.AssemblyInfo.cs
+C:\Users\sambe\Downloads\Aftekenopdrachten2_wagons\BAI2\obj\Debug\net8.0\BAI2.csproj.CoreCompileInputs.cache
+C:\Users\sambe\Downloads\Aftekenopdrachten2_wagons\BAI2\obj\Debug\net8.0\BAI2.dll
+C:\Users\sambe\Downloads\Aftekenopdrachten2_wagons\BAI2\obj\Debug\net8.0\refint\BAI2.dll
+C:\Users\sambe\Downloads\Aftekenopdrachten2_wagons\BAI2\obj\Debug\net8.0\BAI2.pdb
+C:\Users\sambe\Downloads\Aftekenopdrachten2_wagons\BAI2\obj\Debug\net8.0\BAI2.genruntimeconfig.cache
+C:\Users\sambe\Downloads\Aftekenopdrachten2_wagons\BAI2\obj\Debug\net8.0\ref\BAI2.dll
