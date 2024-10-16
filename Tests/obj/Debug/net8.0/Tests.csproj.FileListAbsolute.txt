@@ -101,3 +101,4 @@ C:\Users\sambe\Downloads\Aftekenopdrachten2_wagons\Tests\obj\Debug\net8.0\refint
 C:\Users\sambe\Downloads\Aftekenopdrachten2_wagons\Tests\obj\Debug\net8.0\Tests.pdb
 C:\Users\sambe\Downloads\Aftekenopdrachten2_wagons\Tests\obj\Debug\net8.0\Tests.genruntimeconfig.cache
 C:\Users\sambe\Downloads\Aftekenopdrachten2_wagons\Tests\obj\Debug\net8.0\ref\Tests.dll
+C:\Users\sambe\Downloads\Aftekenopdrachten2_wagons\Tests\obj\Debug\net8.0\Tests.sourcelink.json

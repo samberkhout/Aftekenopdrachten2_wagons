@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-
 namespace BAI
 {
     public partial class BAI_Afteken2
@@ -10,109 +9,115 @@ namespace BAI
         {
             return (b & (1 << 7)) != 0;
         }
+
         public static uint Vermogen(uint b)
         {
-            uint powerBits = (b >> 5) & 0b11;
-            return powerBits switch
+            uint vermogenBits = (b >> 5) & 3;
+            switch (vermogenBits)
             {
-                0 => 0,   // 00 -> 0%
-                1 => 33,  // 01 -> 33%
-                2 => 67,  // 10 -> 67%
-                3 => 100, // 11 -> 100%
-                _ => 0,   // Onmogelijk geval, maar voor de volledigheid
-            };
+                case 0:
+                    return 0;
+                case 1:
+                    return 33;
+                case 2:
+                    return 67;
+                case 3:
+                    return 100;
+                default:
+                    return 0;
+            }
         }
+
         public static bool Wagon(uint b)
         {
             return (b & (1 << 4)) != 0;
         }
+
         public static bool Licht(uint b)
         {
             return (b & (1 << 3)) != 0;
         }
+
         public static uint ID(uint b)
         {
-            return b & 0b111;
+            return b & 7;
         }
 
         public static HashSet<uint> Alle(List<uint> inputStroom)
         {
             return new HashSet<uint>(inputStroom);
-
         }
+
         public static HashSet<uint> ZonderLicht(List<uint> inputStroom)
         {
-            var result = new HashSet<uint>();
+            HashSet<uint> set = new HashSet<uint>();
             foreach (var b in inputStroom)
             {
                 if (!Licht(b))
                 {
-                    result.Add(b);
+                    set.Add(b);
                 }
             }
-            return result;
+            return set;
         }
-        public static HashSet<uint> metLicht(List<uint> inputStroom)
-        {
-            var result = new HashSet<uint>();
-            foreach (var b in inputStroom)
-            {
-                if (Licht(b))
-                {
-                    result.Add(b);
-                }
-            }
-            return result;
-        }
+
         public static HashSet<uint> MetWagon(List<uint> inputStroom)
         {
-            var result = new HashSet<uint>();
+            HashSet<uint> set = new HashSet<uint>();
             foreach (var b in inputStroom)
             {
                 if (Wagon(b))
                 {
-                    result.Add(b);
+                    set.Add(b);
                 }
             }
-            return result;
+            return set;
         }
+
         public static HashSet<uint> SelecteerID(List<uint> inputStroom, uint lower, uint upper)
         {
-            var result = new HashSet<uint>();
+            HashSet<uint> set = new HashSet<uint>();
             foreach (var b in inputStroom)
             {
                 uint id = ID(b);
                 if (id >= lower && id <= upper)
                 {
-                    result.Add(b);
+                    set.Add(b);
                 }
             }
-            return result;
+            return set;
         }
 
         public static HashSet<uint> Opdr3a(List<uint> inputStroom)
         {
-            var idKleinerDan3 = SelecteerID(inputStroom, 0, 2);
-            var zonderLicht = ZonderLicht(inputStroom);
-        
-            // Intersect de sets om treinen te vinden die aan beide voorwaarden voldoen
-            idKleinerDan3.IntersectWith(zonderLicht);
-            return idKleinerDan3;
+            HashSet<uint> set = new HashSet<uint>();
+            foreach (var b in inputStroom)
+            {
+                if (ID(b) < 3 && !Licht(b))
+                {
+                    set.Add(b);
+                }
+            }
+            return set;
         }
 
         public static HashSet<uint> Opdr3b(List<uint> inputStroom)
         {
-             var idGroterDan2 = SelecteerID(inputStroom, 3, 7);
-        var alleTreinenMetLicht = metLicht(inputStroom);
-
-        // Union de sets om treinen te vinden die aan een van beide voorwaarden voldoen
-        alleTreinenMetLicht.UnionWith(idGroterDan2);
-        return alleTreinenMetLicht;
+            HashSet<uint> set = new HashSet<uint>(Alle(inputStroom));
+            set.ExceptWith(Opdr3a(inputStroom));
+            foreach (var b in Opdr3a(inputStroom))
+            {
+                if (ID(b) > 2 || Licht(b))
+                {
+                    set.Add(b);
+                }
+            }
+            return set;
         }
 
         public static void ToonInfo(uint b)
         {
-            Console.WriteLine($"ID {ID(b)}, Licht {Licht(b)}, Wagon {Wagon(b)}, Vermogen {Vermogen(b)}, Vooruit {Vooruit(b)}");
+            Console.WriteLine($"ID {ID(b)}, Licht {Licht(b)}, Wagon {Wagon(b)}, Vermogen {Vermogen(b)}%, Vooruit {Vooruit(b)}");
         }
 
         public static List<uint> GetInputStroom()
@@ -132,7 +137,6 @@ namespace BAI
                 Console.Write($" {i}");
             Console.WriteLine($" }} ({x.Count} elementen)");
         }
-
 
         static void Main(string[] args)
         {
